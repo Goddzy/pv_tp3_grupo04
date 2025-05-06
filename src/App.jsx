@@ -1,13 +1,39 @@
-import TituloPrincipal from "./components/TituloPrincipal"
-import Contador from "./components/Contador"
-//En react se usan componentes, la mayoría de veces se utilizan los funcionales. Existen los componentes funcionales y componentes de clases (ya no se usan casi)
+import { useState } from 'react';
+import Tarea from './components/Tarea';
+import './styles/style.css'
+
+
 function App() {
+
+  const [tarea, setTarea] = useState('');
+  let [tareas,setTareas] = useState([]);
+
+  const agregarTareaAArray = ()=>{
+    if(tarea.trim() !== ''){
+      setTareas([...tareas, tarea]);
+      setTarea('');
+    }
+  }
+
   return (
-      <>
-        <TituloPrincipal/>
-        <hr />
-        <Contador/>
-      </>
+  <div className="contenedor">
+    <h1>Lista de Tareas</h1>
+
+    <div className="formulario">
+      <input type="text" placeholder="Nueva tarea" value={tarea} 
+      onChange={ (e) => setTarea(e.target.value) }
+      />
+      <button onClick={agregarTareaAArray} >Agregar</button>
+    </div>
+
+    <ul className="lista">
+    <li>
+        <span className='realizada'>Tarea realizada ejemplo</span>
+        <button>Realizada</button>
+        <button>Eliminar</button>
+    </li>
+    </ul>
+  </div>
     )
 }
 

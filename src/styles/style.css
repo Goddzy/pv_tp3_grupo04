@@ -1,0 +1,54 @@
+.contenedor {
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  margin: 50px auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-family: sans-serif;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.formulario {
+  margin-bottom: 20px;
+}
+
+.formulario input {
+  padding: 8px;
+  font-size: 14px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.formulario button {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+.lista {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.lista li {
+  margin-bottom: 10px;
+}
+
+.lista span {
+  margin-right: 10px;
+}
+
+.realizada {
+  text-decoration: line-through;
+}
+
+.lista button {
+  margin-right: 5px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
