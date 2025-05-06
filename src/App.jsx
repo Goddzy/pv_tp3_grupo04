@@ -27,11 +27,9 @@ function App() {
     </div>
 
     <ul className="lista">
-    <li>
-        <span className='realizada'>Tarea realizada ejemplo</span>
-        <button>Realizada</button>
-        <button>Eliminar</button>
-    </li>
+        {tareas.map((elemento, index) => (
+           <Tarea key={index} tareaAnotada={elemento} setListaTareas={setTareas} listaTareas={tareas} />
+         ))}
     </ul>
   </div>
     )
