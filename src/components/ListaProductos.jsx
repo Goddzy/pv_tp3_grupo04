@@ -47,6 +47,12 @@ function ListaProductos() {
     }
   };
 
+
+  const ordenarArray = () =>{
+    const arrayOrdenado = [...listaProductos].sort((a,b) => a.precio- b.precio);
+    setListaProductos(arrayOrdenado);
+  }
+
   return (
     <div className="columna">
       <h1>Lista de Productos</h1>
@@ -61,7 +67,7 @@ function ListaProductos() {
         <button onClick={incluirIva}>
           {ivaIncluido ? 'Quitar IVA' : 'Incluir IVA'}
         </button>
-        <button>Ordenar</button>
+        <button onClick={ordenarArray}>Ordenar</button>
         <button>Eliminar más barato</button>
       </div>
       <ul>
