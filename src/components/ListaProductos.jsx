@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Producto from "./Producto";
 
@@ -91,6 +92,17 @@ function ListaProductos() {
     return cumpleFiltroMax && cumpleFiltroMin;
   });
 
+  const eliminarMasBarato = () => {
+    if (listaProductos.length > 0) {
+          const precioMinimo = Math.min(...listaProductos.map(prod => prod.precio));
+          const indiceAEliminar = listaProductos.findIndex(prod => prod.precio === precioMinimo);
+      if (indiceAEliminar !== -1) {
+        const nuevaLista = [...listaProductos];
+        nuevaLista.splice(indiceAEliminar, 1);
+        setListaProductos(nuevaLista);
+      }
+    }
+  };
 
   return (
     <div className="columna">
@@ -143,6 +155,7 @@ function ListaProductos() {
           {ivaIncluido ? 'Quitar IVA' : 'Incluir IVA'}
         </button>
         <button onClick={ordenarArray}>Ordenar por Precio</button>
+        <button onClick={eliminarMasBarato}>Eliminar Precio Más Barato</button>
       </div>
 
       <h2>{filtroActivo ? `Productos hasta $${precioFiltro}` : 'Todos los Productos'}:</h2>
