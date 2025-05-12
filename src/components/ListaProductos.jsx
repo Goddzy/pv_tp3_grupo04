@@ -56,56 +56,7 @@ function ListaProductos() {
   const ordenarArray = () => {
     const arrayOrdenado = [...listaProductos].sort((a, b) => a.precio - b.precio);
     setListaProductos(arrayOrdenado);
-  };
-
-  const activarFiltroPrecio = () => {
-    if (precioFiltro.trim() !== '' && !isNaN(parseFloat(precioFiltro))) {
-      setFiltroActivo(true);
-    } else {
-      alert("Por favor, ingresa un precio válido para filtrar.");
-      setFiltroActivo(false);
-      setPrecioFiltro('');
-    }
-  };
-
-    const activarFiltroPrecioMin = () => {
-    if (precioFiltroMin.trim() !== '' && !isNaN(parseFloat(precioFiltroMin))) {
-      setFiltroActivoMin(true);
-    } else {
-      alert("Por favor, ingresa un precio válido para filtrar.");
-      setFiltroActivoMin(false);
-      setPrecioFiltroMin('')
-    }
-  };
-
-  const eliminarFiltroPrecio = () => {
-    setFiltroActivo(false);
-    setPrecioFiltro('');
-  };
-  
-  const eliminarFiltroPrecioMin = () => {
-    setFiltroActivoMin(false);
-    setPrecioFiltroMin('')
-  };
-
-  const productosParaMostrar = listaProductos.filter((p) => {
-    const cumpleFiltroMax = filtroActivo ? p.precio <= parseFloat(precioFiltro) : true;
-    const cumpleFiltroMin = filtroActivoMin ? p.precio >= parseFloat(precioFiltroMin) : true;
-    return cumpleFiltroMax && cumpleFiltroMin;
-    
-  });
-    const eliminarMasBarato = () => {
-    if (listaProductos.length > 0) {
-          const precioMinimo = Math.min(...listaProductos.map(prod => prod.precio));
-          const indiceAEliminar = listaProductos.findIndex(prod => prod.precio === precioMinimo);
-      if (indiceAEliminar !== -1) {
-        const nuevaLista = [...listaProductos];
-        nuevaLista.splice(indiceAEliminar, 1);
-        setListaProductos(nuevaLista);
-      }
-    }
-  };
-
+  }
 
   return (
     <div className="columna">
@@ -157,8 +108,8 @@ function ListaProductos() {
         <button onClick={incluirIva}>
           {ivaIncluido ? 'Quitar IVA' : 'Incluir IVA'}
         </button>
-        <button onClick={ordenarArray}>Ordenar por Precio</button>
-        <button onClick={eliminarMasBarato}>Eliminar Precio Más Barato</button>
+        <button onClick={ordenarArray}>Ordenar</button>
+        <button>Eliminar más barato</button>
       </div>
 
       <h2>{filtroActivo ? `Productos hasta $${precioFiltro}` : 'Todos los Productos'}:</h2>
@@ -178,5 +129,3 @@ function ListaProductos() {
 
 
 export default ListaProductos;
-
- 
