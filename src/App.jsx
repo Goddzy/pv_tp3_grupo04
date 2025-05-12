@@ -1,14 +1,19 @@
-import TituloPrincipal from "./components/TituloPrincipal"
-import Contador from "./components/Contador"
-//En react se usan componentes, la mayoría de veces se utilizan los funcionales. Existen los componentes funcionales y componentes de clases (ya no se usan casi)
+import ListaProductos from './components/ListaProductos';
+import ListaTareas from './components/ListaTareas';
+import './styles/style.css';
+
 function App() {
   return (
-      <>
-        <TituloPrincipal/>
-        <hr />
-        <Contador/>
-      </>
-    )
+    <div className="contenedor-principal">
+      <ListaProductos/>
+      <ListaTareas />
+    </div>
+  );
 }
 
-export default App
+export default App;
+
+
+
+
+
