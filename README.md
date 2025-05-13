@@ -1,5 +1,3 @@
-Integrantes
-
 # Lista de Productos y Lista de Tareas
 
 ## Integrantes
